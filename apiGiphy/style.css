@@ -22,6 +22,14 @@ body{
 }
 
 
+.inner{
+    margin: 15%;
+}
 
 
+#animals{
+    background-color: deeppink;
+    border-color: black;
+    
+}
 
