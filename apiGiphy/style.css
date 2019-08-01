@@ -1,0 +1,27 @@
+#searchtext{
+    align-items: left;
+    background-color: aqua;
+    margin-left: 75%;
+
+}
+
+#searchgif{
+    background-color: cadetblue;
+    border-style: groove;
+    font-style: normal;
+    width: 100px;
+}
+
+.searchbox{
+    margin-left: 75%
+}
+
+body{
+    background-color: lightgray;
+
+}
+
+
+
+
+
