@@ -1,151 +1,67 @@
+var topics = ["rats", "lions","dogs","cats","fish","cartoons"];
 
-
-
-
-  function getData ()
-
-{
-   
-var input = $("#searchtext").val();
-var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + input + "&api_key=3UYaadyaH2yMdA1aSBnew9sLMO1RxStn&limit=10"; 
-
-
-
-
-
-
-
-
-$.ajax({
-    url: queryURL,
-    method:"GET",
-}).then(function(response) { 
-console.log("success got data", response);
-
-    var giffs = response.data 
-
-
-for (var i=0; i<giffs.length; i++) 
-{  
-    $(".inner").append("<img src="+giffs[i].images.fixed_height.url+"' style='height:300px; width: 300px;'/>")
-    
-
-    
-    if (giffs[i].rating !== "r" && giffs[i].rating !== "pg-13") {
-        
-        var gifDiv = $("<div>");
-        var rating = giffs[i].rating;
-        var p = $("<p>").text("Rating: " + rating);
-        var gifImage = $("<img>");
-
-      
-        gifImage.attr("src", giffs[i].images.fixed_height.url);
-        gifDiv.append(p);
-        gifDiv.append(gifImage);
-
-       
-        $(".inner").prepend(gifDiv);
-
-
-      }
-
-
-
-
-
-
-
-
+function displayButtons() {
+	$("#buttons").empty();
+	for (var i = 0; i < topics.length; i++) {
+		var initialButtons = $("<button>")
+        initialButtons.addClass("topic-button")
+        initialButtons.addClass("btn btn-primary")
+		initialButtons.text(topics[i])
+		initialButtons.attr("data-topic", topics[i])
+		$("#buttons").append(initialButtons)
+	}
 }
 
+$(document).ready(function() {
+	displayButtons()
+	$("#buttons").on("click", ".topic-button", function() {
+        var gif =  $(this).attr("data-topic")
+		var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
+        gif + "&api_key=6kBjFZWPNUa1OOwOnw7Fmt7NrMWF2pi1&limit=10"
 
+		$.ajax({
+			url: queryURL,
+			method: "GET"
+		}).then(function(response) {
+			var gifs = response.data
+            var gifSection = $("<div>")
+            $("#gifs").empty()
 
+			gifSection.attr("class", "gif-section");
+			for (var i = 0; i < gifs.length; i++) {
+				var gifDiv = $("<div>")
+				var gifImg = $("<img>")
+				gifImg.attr("data-still-url", gifs[i].images.fixed_height_still.url)
+				gifImg.attr("data-animate-url", gifs[i].images.fixed_height.url)
+				gifImg.attr("data-state", "still")
+				gifImg.attr("src", gifImg.attr("data-still-url"))
+				gifImg.addClass("gif-img")
+				gifDiv.append(gifImg)
+				gifDiv.addClass("gif-div")
+                var gifRating = $("<p>")
+                gifRating.attr("class","rating")
+				gifRating.text("Rating: " +gifs[i].rating)
+				gifRating.addClass("rating")
+				gifDiv.append(gifRating)
+				$(gifSection).append(gifDiv)
+			}
 
-
-
-
+			$("#gifs").prepend(gifSection)
+		})
+	})
+	$("#gifs").on("click", ".gif-img", function() {
+		if ($(this).attr("data-state") == "still") {
+			$(this).attr("src", $(this).attr("data-animate-url"))
+			$(this).attr("data-state", "animate")
+		} else {
+			$(this).attr("src", $(this).attr("data-still-url"))
+			$(this).attr("data-state", "still")
+		}
+	})
+	$("#add-button").on("click", "#add-button-submit", function() {
+		event.preventDefault()
+		var newTopic = $("#add-button-input").val().trim()
+		topics.push(newTopic)
+		displayButtons()
+	})
 })
-
-};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-$("button").on("click", function zoo()
-
-{
- var animal =$(this).attr("data-animals");  
-
-var getGif = "http://api.giphy.com/v1/gifs/search?q=" + animal + "&api_key=3UYaadyaH2yMdA1aSBnew9sLMO1RxStn&limit=10"; 
-
-
-
-
-
-
-
-
-$.ajax({
-    url: getGif,
-    method:"GET",
-}).then(function(farm) { 
-console.log("success got data", farm);
-
-    var zoo = farm.data 
-
-
-for (var i=0; i<zoo.length; i++) 
-{  
-    $(".inner").append("<img src="+zoo[i].images.fixed_height.url+"' style='height:300px; width: 300px;'/>")
-    
-
-
-    if (zoo[i].rating !== "r" && zoo[i].rating !== "pg-13") {
-        
-        var gifDiv = $("<div>");
-        var rating = zoo[i].rating;
-        var p = $("<p>").text("Rating: " + rating);
-        var gifImage = $("<img>");
-
-      
-        gifImage.attr("src", zoo[i].images.fixed_height.url);
-        gifDiv.append(p);
-        gifDiv.append(gifImage);
-
-       
-        $(".inner").prepend(gifDiv);
-
-
-      }
-
-
-
-
-
-
-}
-
-
-
-
-
-
-
-
-
-
-});
-
-
-});

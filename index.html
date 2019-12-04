@@ -1,40 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="apiGiphy/style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script
-  src="https://code.jquery.com/jquery-3.4.1.js"
-  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-  crossorigin="anonymous"></script>
-
+    <meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Giphy API</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+	<script src="./apiGiphy/main.js"></script>
 </head>
 <body>
-
-    
-        <h1>
-            
-                <button id="animals" data-animals="DOGS"  >DOGS</button>
-                <button id="animals" data-animals="FISH" >FISH</button>
-                <button id="animals" data-animals="RABBITS" >RABBITS</button>
-                <button id="animals" data-animals="LIONS" >LIONS</button>
-            
-        </h1>
-
-  
-    <input id="searchtext" type="text" placeholder="Search...">
-    <button id="searchgif" class="searchbox"type="submit" onclick="getData()" >Search</button>
-    
-    <div class="inner" ></div>
-    
-    
-    
-  
-    <script src="apiGiphy/main.js"></script>
+    <div class="container">
+        <div class="jumbotron" align = "center">
+            <h2>GIF search</h2>
+            <p>powered by Giphy</p>
+        </div>
+        
+        
+            <section id="buttons" align= "center"></section><br>
+            <section id="add-button">
+                <form id="add-button-form" align= "center">
+                    <input id="add-button-input" name="add-button-input" type="text" placeholder="search">
+                    <input id="add-button-submit" type="submit" value="Add Button" class="btn btn-primary">
+                </form>
+            </section>
+        <div class="boxed">
+        <div id="gifs"></div>
+        </div>
+    </div>
 </body>
 </html>
 
