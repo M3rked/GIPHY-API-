@@ -1,34 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Giphy API</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-	<script src="./apiGiphy/main.js"></script>
-</head>
-<body>
-    <div class="container">
-        <div class="jumbotron" align = "center">
-            <h2>GIF search</h2>
-            <p>powered by Giphy</p>
-        </div>
-        
-        
-            <section id="buttons" align= "center"></section><br>
-            <section id="add-button">
-                <form id="add-button-form" align= "center">
-                    <input id="add-button-input" name="add-button-input" type="text" placeholder="search">
-                    <input id="add-button-submit" type="submit" value="Add Button" class="btn btn-primary">
-                </form>
-            </section>
-        <div class="boxed">
-        <div id="gifs"></div>
-        </div>
-    </div>
-</body>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>Giphy API</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+			integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+			crossorigin="anonymous"
+		/>
+		<link rel="stylesheet" type="text/css" href="./apiGiphy/style.css" />
+		<script
+			src="https://code.jquery.com/jquery-3.3.1.min.js"
+			integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+			crossorigin="anonymous"
+		></script>
+		<script src="./apiGiphy/main.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="jumbotron" align="center">
+				<h1>GIF search</h1>
+				<h5>A simple fun GIF search application</h5>
+				<p>Click on the images to play it's animation</p>
+			</div>
+
+			<section id="buttons" align="center"></section>
+			<br />
+			<section id="add-button">
+				<form id="add-button-form" align="center">
+					<input
+						id="add-button-input"
+						name="add-button-input"
+						type="text"
+						placeholder="search GIF's"
+					/>
+					<input
+						id="add-button-submit"
+						type="submit"
+						value="Add Button"
+						class="btn btn-dark"
+					/>
+				</form>
+			</section>
+			<div class="boxed">
+				<div id="gifs" class="images"></div>
+			</div>
+		</div>
+	</body>
 </html>
-
-

@@ -1,35 +1,19 @@
-#searchtext{
-    align-items: left;
-    background-color: aqua;
-    margin-left: 75%;
-
+body {
+	background-color: lightgray;
 }
 
-#searchgif{
-    background-color: cadetblue;
-    border-style: groove;
-    font-style: normal;
-    width: 100px;
+.jumbotron {
+	background-color: black;
+	color: lightgray;
 }
 
-.searchbox{
-    margin-left: 75%
+.gif-div {
+	display: inline-block;
+	margin: 5px 5px 5px 5px;
+	border-radius: 10px;
 }
 
-body{
-    background-color: lightgray;
-
+.boxed {
+	background-color: white;
+	border-radius: 10px;
 }
-
-
-.inner{
-    margin: 15%;
-}
-
-
-#animals{
-    background-color: deeppink;
-    border-color: black;
-    
-}
-
